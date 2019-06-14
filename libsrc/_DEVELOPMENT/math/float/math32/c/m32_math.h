@@ -34,6 +34,10 @@
 #include <stdint.h>
 #include <limits.h>
 
+#ifndef __SCCZ80
+#define __stdc
+#endif
+
 #define HUGE_VALF   3.402823466e+38
 
 #define PI          3.1415926536
@@ -76,7 +80,7 @@ float m32_tanf(float x) __z88dk_fastcall;
 float m32_asinf(float x) __z88dk_fastcall;
 float m32_acosf(float x) __z88dk_fastcall;
 float m32_atanf(float x) __z88dk_fastcall;
-float m32_atan2f(float x, float y);
+float m32_atan2f(float x, float y) __stdc;
 
 /* Hyperbolic functions */
 float m32_sinhf(float x) __z88dk_fastcall;
@@ -90,16 +94,16 @@ float m32_atanhf(float x) __z88dk_fastcall;
 float m32_expf(float x) __z88dk_fastcall;
 float m32_logf(float x) __z88dk_fastcall;
 float m32_log10f(float x) __z88dk_fastcall;
-float m32_powf(float x, float y);
+float m32_powf(float x, float y) __stdc;
 
 /* Nearest integer, absolute value, and remainder functions */
 float m32_fabsf(float x) __z88dk_fastcall;
-float m32_frexpf(float x, int8_t *pw2) __z88dk_callee;
-float m32_ldexpf(float x, int16_t pw2) __z88dk_callee;
+float m32_frexpf(float x, int8_t *pw2) __stdc __z88dk_callee;
+float m32_ldexpf(float x, int16_t pw2) __stdc __z88dk_callee;
 float m32_ceilf(float x) __z88dk_fastcall;
 float m32_floorf(float x) __z88dk_fastcall;
-float m32_modff(float x, float * y);
-float m32_fmodf(float x, float y);
+float m32_modff(float x, float * y) __stdc;
+float m32_fmodf(float x, float y) __stdc;
 float m32_roundf(float x) __z88dk_fastcall;
 
 /* Intrinsic functions */
@@ -109,7 +113,7 @@ float m32_sqrf(float a) __z88dk_fastcall;
 float m32_invf(float a) __z88dk_fastcall;
 float m32_sqrtf(float a) __z88dk_fastcall;
 float m32_invsqrtf(float a) __z88dk_fastcall;
-float m32_hypotf(float x, float y) __z88dk_callee;
-float m32_polyf(const float x, const float d[], uint16_t n) __z88dk_callee;
+float m32_hypotf(float x, float y) __stdc __z88dk_callee;
+float m32_polyf(const float x, const float d[], uint16_t n) __stdc __z88dk_callee;
 
 #endif  /* _INC_MATH */
